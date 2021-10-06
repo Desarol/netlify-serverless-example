@@ -10,6 +10,7 @@ const run = async () => {
     ([
       `/api/rust/* /.netlify/functions/rust-serverless${ext}/:splat 200!`,
       `/api/go/* /.netlify/functions/go-serverless${ext}/:splat 200!`,
+      `/api/typescript/* /.netlify/functions/typescript-serverless/:splat 200!`
     ]).join('\r\n'),
     'utf8'
   )

@@ -6,6 +6,36 @@
   <title>Netlify Serverless</title>
 </head>
 <body>
-  <div></div>
+  <div style="max-width: 640px; margin: 0 auto;">
+    <h1>Netlify Serverless</h1>
+    <button id="button">Make request</button>
+    <h2>Responses</h2>
+    <div style="background-color: rgba(50, 50, 50, 0.1); padding: 1rem; font-family: monospace;" id="response">
+      No responses yet. Click "Make request" and the response will show here.
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const makeRequestWithTime = async (url) => {
+        const before = Date.now()
+        const r = await fetch(url).then(r => r.text())
+        return [r, Date.now() - before]
+      }
+
+      const $b = document.getElementById('button')
+      const $r = document.getElementById('response')
+
+      $b.onclick = async (e) => {
+        const rs = await Promise.all([
+          makeRequestWithTime('/api/go'),
+          makeRequestWithTime('/api/rust'),
+          makeRequestWithTime('/api/typescript'),
+        ])
+
+        $r.innerHTML = rs.map(([r, time]) => `<div>${r} (in ${time}ms)</div>`).join('')
+      }
+    })()
+  </script>
 </body>
 </html>

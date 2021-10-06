@@ -1,5 +1,6 @@
 /.netlify
 /node_modules
+/public/_redirects
 /functions/rust-serverless/target
 /functions/go-serverless-fn
 /functions/rust-serverless-fn

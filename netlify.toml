@@ -1,4 +1,26 @@
 [build]
-command = "cd functions/go-serverless && go build && mv go-serverless ../go-serverless-fn && cd ../rust-serverless && make build"
+command = "cd functions/go-serverless && go build && mv go-serverless ../go-serverless-fn && cd ../rust-serverless && make build && cd ../../ && node redirects.js"
 publish = "public"
 functions = "functions"
+
+[context.production.environment]
+  RUST_URL = "/.netlify/functions/rust-serverless-fn"
+  GO_URL = "/.netlify/functions/go-serverless-fn"
+
+[dev.environment]
+  RUST_URL = "/.netlify/functions/rust-serverless"
+  GO_URL = "/.netlify/functions/go-serverless"
+
+[[redirects]]
+from="/api/rust/*"
+to=":RUST_URL/:splat"
+status=200
+[[redirects]]
+from="/api/go/*"
+to=":GO_URL/:splat"
+status=200
+[[redirects]]
+from="/api/typescript/*"
+to="/.netlify/functions/typescript-serverless/:splat"
+status=200
+

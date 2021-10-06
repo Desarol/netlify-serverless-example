@@ -1,0 +1,27 @@
+{
+  "name": "netlify-serverless-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "cd rust && make build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Desarol/netlify-serverless-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Desarol/netlify-serverless-example/issues"
+  },
+  "homepage": "https://github.com/Desarol/netlify-serverless-example#readme",
+  "devDependencies": {
+    "netlify-cli": "^6.10.2"
+  },
+  "dependencies": {
+    "@netlify/functions": "^0.7.2"
+  }
+}

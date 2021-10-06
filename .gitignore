@@ -1,3 +1,2 @@
-/target
-.netlify
-functions
+/.netlify
+/node_modules

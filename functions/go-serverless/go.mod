@@ -1,4 +1,4 @@
-module github.com/desarol/netlify-serverless-example
+module github.com/desarol/go-serverless
 
 go 1.15
 

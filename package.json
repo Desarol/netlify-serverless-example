@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "netlify dev",
-    "build": "cd rust && make build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

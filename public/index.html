@@ -17,7 +17,7 @@
 
   <script>
     (() => {
-      const makeRequestWithTime = async (url) => {
+      const timedFetch = async (url) => {
         const before = Date.now()
         const r = await fetch(url).then(r => r.text())
         return [r, Date.now() - before]
@@ -28,9 +28,9 @@
 
       $b.onclick = async (e) => {
         const rs = await Promise.all([
-          makeRequestWithTime('/api/go'),
-          makeRequestWithTime('/api/rust'),
-          makeRequestWithTime('/api/typescript'),
+          timedFetch('/.netlify/functions/go-serverless'),
+          timedFetch('/.netlify/functions/rust-serverless'),
+          timedFetch('/.netlify/functions/typescript-serverless'),
         ])
 
         $r.innerHTML = rs.map(([r, time]) => `<div>${r} (in ${time}ms)</div>`).join('')

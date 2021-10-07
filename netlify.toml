@@ -1,4 +1,4 @@
 [build]
-command = "cd functions/go-serverless && go build && mv go-serverless ../go-serverless-fn && cd ../rust-serverless && make build && cd ../../ && node redirects.js"
+command = ""
 publish = "public"
 functions = "functions"

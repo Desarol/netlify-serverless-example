@@ -1,4 +1,4 @@
 [build]
-command = "rustup toolchain install stable"
+command = ""
 publish = "public"
 functions = "functions"

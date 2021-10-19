@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Desarol/netlify-serverless-example#readme",
   "devDependencies": {
+    "@types/node": "^16.11.1",
     "netlify-cli": "^6.10.2"
   },
   "dependencies": {
